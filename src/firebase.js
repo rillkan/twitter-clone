@@ -5,6 +5,7 @@ import { getAuth } from "firebase/auth";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+//Batch12 Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyCk-WM4XNFgX1I8ZZqCLhwIORvxx1u-wz4",
   authDomain: "twitter-app-batch12.firebaseapp.com",
