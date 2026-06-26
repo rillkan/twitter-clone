@@ -1,7 +1,9 @@
 import{
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   signInWithEmailAndPassword,
+  signInWithPopup,
 } from "firebase/auth"
 import { Button, Col, Image, Row, Modal, Form } from "react-bootstrap";
 import { useContext, useEffect, useState } from "react";
@@ -50,6 +52,16 @@ await signInWithEmailAndPassword(auth, username, password)
   }
 };
 
+const provider = new GoogleAuthProvider();
+const handleGoogleLogin = async(e) => {
+  e.preventDefault();
+  try {
+    await signInWithPopup(auth, provider);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
   const handleClose = () => setModalShow(null);
 
   return (
@@ -64,7 +76,7 @@ await signInWithEmailAndPassword(auth, username, password)
         <h2 className="my-5" style={{ fontSize: 31 }}>Join Twitter Today.</h2>
 
         <Col sm={5} className="d-grid gap-2">
-          <Button className="rounded-pill" variant="outline-dark">
+          <Button className="rounded-pill" variant="outline-dark" onClick={handleGoogleLogin}>
             <i className="bi bi-google"></i> Sign up with Google
           </Button>
           <Button className="rounded-pill" variant="outline-dark">

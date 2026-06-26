@@ -7,7 +7,6 @@ import ProfileMidBody from "../components/ProfileMidBody";
 import ProfileSideBar from "../components/ProfileSideBar";
 
 export default function ProfilePage() {
-  const [authToken, setAuthToken] = useLocalStorage("authToken", "");
   const auth = getAuth();
   const navigate = useNavigate();
 const {currentUser} = useContext(AuthContext)
